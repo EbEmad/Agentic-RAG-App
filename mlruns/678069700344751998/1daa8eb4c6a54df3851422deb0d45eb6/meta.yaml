@@ -1,0 +1,14 @@
+artifact_uri: file:///home/predictive_maintenance_project/mlruns/678069700344751998/1daa8eb4c6a54df3851422deb0d45eb6/artifacts
+end_time: 1753223822880
+entry_point_name: ''
+experiment_id: '678069700344751998'
+lifecycle_stage: active
+run_id: 1daa8eb4c6a54df3851422deb0d45eb6
+run_name: angry-ox-269
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753223808922
+status: 3
+tags: []
+user_id: root

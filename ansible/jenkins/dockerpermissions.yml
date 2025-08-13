@@ -1,0 +1,19 @@
+- name: Get GID of /var/run/docker.sock
+  command: stat -c "%g" /var/run/docker.sock
+  register: docker_sock_gid
+
+- name: Ensure /var/run/docker.sock group is 'docker'
+  file:
+    path: /var/run/docker.sock
+    group: docker
+    state: file
+
+- name: Check if GID 999 is already used
+  command: getent group 999
+  register: gid_999_check
+  ignore_errors: true
+
+- name: Change docker group GID to 999 (only if not already taken)
+  command: groupmod -g 999 docker
+  when: gid_999_check.rc != 0
+  ignore_errors: true

@@ -1,0 +1,14 @@
+artifact_uri: file:///home/predictive_maintenance_project/mlruns/678069700344751998/f022f2ab956c43e9be7361d096ebac65/artifacts
+end_time: 1753600337110
+entry_point_name: ''
+experiment_id: '678069700344751998'
+lifecycle_stage: active
+run_id: f022f2ab956c43e9be7361d096ebac65
+run_name: flawless-steed-770
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753600333327
+status: 3
+tags: []
+user_id: root

@@ -1,0 +1,21 @@
+- name: Deploy MLflow
+  hosts: mlops
+  become: true
+
+  vars:
+    mlflow_compose_path: /home/ubuntu/docker-compose-mlflow.yml
+    s3_bucket: mlops-project-artifacts-noura
+  
+
+  tasks:
+    - name: Copy MLflow Docker Compose file
+      copy:
+        src: docker-compose-mlflow.yml
+        dest: "{{ mlflow_compose_path }}"
+        owner: ubuntu
+        group: ubuntu
+        mode: '0644'
+
+    - name: Start MLflow container
+      become_user: ubuntu
+      shell: docker compose -f {{ mlflow_compose_path }} up -d

@@ -1,0 +1,14 @@
+artifact_uri: file:///home/predictive_maintenance_project/mlruns/678069700344751998/fdb8f553400e4d9cb6425eb51c96f5cf/artifacts
+end_time: 1752568874451
+entry_point_name: ''
+experiment_id: '678069700344751998'
+lifecycle_stage: active
+run_id: fdb8f553400e4d9cb6425eb51c96f5cf
+run_name: redolent-boar-836
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752568868583
+status: 4
+tags: []
+user_id: root

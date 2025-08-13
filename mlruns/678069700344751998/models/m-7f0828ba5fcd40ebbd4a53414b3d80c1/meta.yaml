@@ -1,0 +1,10 @@
+artifact_location: file:///home/predictive_maintenance_project/mlruns/678069700344751998/models/m-7f0828ba5fcd40ebbd4a53414b3d80c1/artifacts
+creation_timestamp: 1753600329086
+experiment_id: '678069700344751998'
+last_updated_timestamp: 1753600333320
+model_id: m-7f0828ba5fcd40ebbd4a53414b3d80c1
+model_type: null
+name: model
+source_run_id: 1f444ca323c84d7cb8273243b9626384
+status: 2
+status_message: null

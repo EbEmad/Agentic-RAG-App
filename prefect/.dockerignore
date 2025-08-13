@@ -1,0 +1,29 @@
+# .dockerignore
+
+# Ignore Python cache and venvs
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Ignore datasets, models, and logs
+*.csv
+*.pkl
+*.h5
+*.zip
+*.log
+mlruns/
+output/
+notebooks/
+# Ignore Git
+.git/
+.gitignore
+data/
+Terraform/
+.git/
+*.ipynb
+*.log
+*.yaml
+Jenkinsfile
+Makefile
+

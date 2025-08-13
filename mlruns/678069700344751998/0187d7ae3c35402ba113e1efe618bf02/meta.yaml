@@ -1,0 +1,14 @@
+artifact_uri: file:///home/predictive_maintenance_project/mlruns/678069700344751998/0187d7ae3c35402ba113e1efe618bf02/artifacts
+end_time: 1752501935488
+entry_point_name: ''
+experiment_id: '678069700344751998'
+lifecycle_stage: active
+run_id: 0187d7ae3c35402ba113e1efe618bf02
+run_name: popular-shad-45
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752501927302
+status: 3
+tags: []
+user_id: root

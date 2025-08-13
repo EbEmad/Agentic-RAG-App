@@ -1,0 +1,6 @@
+artifact_location: file:///home/predictive_maintenance_project/mlruns/678069700344751998
+creation_time: 1752499872164
+experiment_id: '678069700344751998'
+last_update_time: 1752499872164
+lifecycle_stage: active
+name: bearing_failure_prediction

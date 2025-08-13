@@ -1,0 +1,14 @@
+artifact_uri: file:///home/predictive_maintenance_project/mlruns/678069700344751998/9b4509724368441b8a8713fc6b32dbe7/artifacts
+end_time: 1752505868798
+entry_point_name: ''
+experiment_id: '678069700344751998'
+lifecycle_stage: active
+run_id: 9b4509724368441b8a8713fc6b32dbe7
+run_name: crawling-cod-29
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752505848846
+status: 3
+tags: []
+user_id: root

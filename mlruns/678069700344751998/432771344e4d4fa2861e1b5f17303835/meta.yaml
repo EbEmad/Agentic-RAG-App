@@ -1,0 +1,14 @@
+artifact_uri: file:///home/predictive_maintenance_project/mlruns/678069700344751998/432771344e4d4fa2861e1b5f17303835/artifacts
+end_time: 1752570976877
+entry_point_name: ''
+experiment_id: '678069700344751998'
+lifecycle_stage: active
+run_id: 432771344e4d4fa2861e1b5f17303835
+run_name: unruly-pig-832
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752570969916
+status: 3
+tags: []
+user_id: root

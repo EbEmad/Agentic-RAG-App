@@ -1,0 +1,14 @@
+artifact_uri: file:///home/predictive_maintenance_project/mlruns/678069700344751998/e8d07ca6088f41ed9a6533035c002512/artifacts
+end_time: 1752502757435
+entry_point_name: ''
+experiment_id: '678069700344751998'
+lifecycle_stage: active
+run_id: e8d07ca6088f41ed9a6533035c002512
+run_name: unruly-croc-284
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752502746721
+status: 3
+tags: []
+user_id: root

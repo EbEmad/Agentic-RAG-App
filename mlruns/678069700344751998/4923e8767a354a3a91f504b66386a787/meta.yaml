@@ -1,0 +1,14 @@
+artifact_uri: file:///home/predictive_maintenance_project/mlruns/678069700344751998/4923e8767a354a3a91f504b66386a787/artifacts
+end_time: 1752502215031
+entry_point_name: ''
+experiment_id: '678069700344751998'
+lifecycle_stage: active
+run_id: 4923e8767a354a3a91f504b66386a787
+run_name: grandiose-stoat-895
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752502208443
+status: 3
+tags: []
+user_id: root

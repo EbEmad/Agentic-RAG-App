@@ -1,0 +1,14 @@
+artifact_uri: file:///home/predictive_maintenance_project/mlruns/678069700344751998/ca9a7088a4d0483ea13c60a4fd6b38db/artifacts
+end_time: 1752501113942
+entry_point_name: ''
+experiment_id: '678069700344751998'
+lifecycle_stage: active
+run_id: ca9a7088a4d0483ea13c60a4fd6b38db
+run_name: nervous-gnat-486
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752501108038
+status: 3
+tags: []
+user_id: root

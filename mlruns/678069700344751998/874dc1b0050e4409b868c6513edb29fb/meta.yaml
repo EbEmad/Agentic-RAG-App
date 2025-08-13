@@ -1,0 +1,14 @@
+artifact_uri: file:///home/predictive_maintenance_project/mlruns/678069700344751998/874dc1b0050e4409b868c6513edb29fb/artifacts
+end_time: 1752502479862
+entry_point_name: ''
+experiment_id: '678069700344751998'
+lifecycle_stage: active
+run_id: 874dc1b0050e4409b868c6513edb29fb
+run_name: amusing-trout-36
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752502467828
+status: 3
+tags: []
+user_id: root
