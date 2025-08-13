@@ -32,7 +32,7 @@ Predict failures **before they happen** by:
 4. Triggering **retraining and alerts** when model reliability drops.
 
 ---
-## 🔍 Solution Architecture
+##  Solution Architecture
 
 ```mermaid
 graph TD
@@ -52,7 +52,7 @@ graph TD
 ```
 
 ---
-📂 Repository Structure
+ Repository Structure
 ```bash
 ├── .gitignore
 ├── Jenkinsfile
@@ -124,30 +124,30 @@ graph TD
     │   └── input_example.json
     └── train.py
 ```
-## 🌟 Key Features
+##  Key Features
 
-### 🚀 Infrastructure Automation
+###  Infrastructure Automation
 - **Terraform-provisioned EC2 on AWS** with Elastic IP  
 - **S3 bucket** for data/model storage  
 - **IAM roles** for secure S3 access  
 - **Security groups** with least-privilege ports  
 
-### 🐳 Custom Docker Images
+###  Custom Docker Images
 - `prefect-agent-custom`: Pre-loaded with Python 3.10 + dependencies  
 - `jenkins`: Handle permissions to use separate docker containers as agents for CI/CD pipelines  
 
-### 🔁 ML Lifecycle Management
+###  ML Lifecycle Management
 - **workflow orchestration** using prefect
 - **Model versioning** in MLflow Registry  
 - **Automated retraining triggers**  
 - **Data drift detection** with Evidently AI  
 
-### 🔧 CI/CD & Monitoring
+###  CI/CD & Monitoring
 - **Jenkins pipelines** for deployment and training
 - **Microsoft Teams alert** integration  
 - **Prefect dashboard** for workflow monitoring
 - 
-### 🚀 FastAPI Model Serving
+###  FastAPI Model Serving
 
 **Minimal production API** that auto-serves the latest production model from MLflow registry 
 
@@ -158,7 +158,7 @@ graph TD
 git clone https://github.com/norahosny66/predictive-maintenance-mlops.git
 cd predictive-maintenance-mlops
 ```
-### 2. ☁️ Provision Infrastructure (Terraform)
+### 2.  Provision Infrastructure (Terraform)
 ```bash
 cd terraform/
 terraform init
@@ -178,13 +178,13 @@ Security groups with necessary ports open
 cd ../ansible/
 echo -e "[mlops]\n<your-ec2-public-ip>" > inventory.yml
 ```
-### 4. ⚙️ Configure EC2 (Ansible)
+### 4.  Configure EC2 (Ansible)
 ```bash
 ansible-playbook -i inventory.yml mlflow.yml
 ansible-playbook -i inventory.yml prefect.yml
 ansible-playbook -i inventory.yml jenkins.yml
 ```
-### 5. 📤 Upload Data to S3
+### 5.  Upload Data to S3
 
 ### 6. Register & Run Prefect Flow
 Build and apply Prefect deployment:
@@ -216,7 +216,7 @@ Detect drift (via Evidently AI)
 
 Trigger retraining
 
-## 📣 Teams Alert Configuration
+##  Teams Alert Configuration
 
 1. **Create an incoming webhook** in your Microsoft Teams channel  
    - Go to your channel → **Connectors** → **Incoming Webhook** → Generate URL
@@ -234,9 +234,5 @@ gunicorn -w 4 -k uvicorn.workers.UvicornWorker api:app  # Prod
 Access: http://localhost:8000/docs
 
 
-## 🙋‍♀️ Maintainer
 
-**Noura Hosny**  
-SRE | Cloud & Automation Enthusiast  
-💼 [LinkedIn Profile](https://www.linkedin.com/in/nourahosny81231/)
 
