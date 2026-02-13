@@ -49,3 +49,42 @@ def researcher_node(state:GraphState)->GraphState:
     notes=[line.strip("- ").strip() for line in resp.split("\n") if line.strip()]
     state["research_notes"]=notes
     return state
+
+def writer_node(state:GraphState)->GraphState:
+    resp=llm.invoke([
+        SystemMessage(content=WRITER_SYSTEM),
+        HumanMessage(content=f"""
+        Question:
+        {state['question']}
+        Plan:
+        {state['plan']}
+        Research notes:
+        {state['research_notes']}
+        
+        If critique exists, you may improve the draft accordingly.
+        Critique:
+        {state.get('critique')}
+        
+
+        """)
+    ]).content
+    state["draft"]=resp
+    return state
+
+def critic_node(state: GraphState) -> GraphState:
+    structured_critic = llm.with_structured_output(Critique)
+    critique_obj = structured_critic.invoke([
+        SystemMessage(content=CRITIC_SYSTEM),
+        HumanMessage(content=f"""
+        Question:
+        {state['question']}
+
+        Draft:
+        {state['draft']}
+        """)
+        ])
+
+    state["critique"] = critique_obj.model_dump()
+    state["iteration"] = int(state.get("iteration", 0)) + 1
+
+    return state
