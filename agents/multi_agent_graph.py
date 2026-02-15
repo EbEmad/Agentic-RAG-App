@@ -3,7 +3,8 @@ from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
 from .prompts import PLANNER_SYSTEM, RESEARCHER_SYSTEM, WRITER_SYSTEM, CRITIC_SYSTEM, FINALIZER_SYSTEM
-
+from typing import Literal
+from langgraph.graph import StateGraph, END
 
 class GraphState(TypedDict):
     question: str
@@ -88,3 +89,80 @@ def critic_node(state: GraphState) -> GraphState:
     state["iteration"] = int(state.get("iteration", 0)) + 1
 
     return state
+
+
+def finalizer_node(state:GraphState)->GraphState:
+    resp=llm.invoke([
+        SystemMessage(content=FINALIZER_SYSTEM),
+        HumanMessage(content=f""" 
+        Question:
+            {state['question']}
+        Plan:
+            {state['plan']}
+        Research notes:
+            {state['research_notes']}
+        Critique (if any):
+            {state.get('critique')}
+        Current raft (if any):
+            {state.get('draft')}
+
+        """)
+    ]).content
+
+    state["draft"]=resp
+    return state
+
+def should_revise(state:GraphState)->Literal["revise","finalize"]:
+    """
+    Stop conditions:
+    - If we hit max_iterations => finalize
+    - Else if critique score is below threshold => revise
+    - Else finalize
+    """
+
+    critique=state.get("critique") or {}
+    score=int(critique.get("score",100))
+
+    # Safety: if iteration/max_iterations missing, default to no loop
+    iteration = int(state.get("iteration", 0))
+    max_iterations = int(state.get("max_iterations", 0))
+
+    if iteration>=max_iterations:
+        return "finalize"
+        
+    if score<80:
+        return "revise"
+    return "finalize"
+
+def build_app():
+    workflow = StateGraph(GraphState)
+
+    # Nodes
+    workflow.add_node("planner", planner_node)
+    workflow.add_node("researcher", researcher_node)
+    workflow.add_node("writer", writer_node)
+    workflow.add_node("critic", critic_node)
+    workflow.add_node("finalizer", finalizer_node)
+
+    # Entry
+    workflow.set_entry_point("planner")
+
+    # Edges
+    workflow.add_edge("planner", "researcher")
+    workflow.add_edge("researcher", "writer")
+    workflow.add_edge("writer", "critic")
+
+    # Conditional loop or finalize
+    workflow.add_conditional_edges(
+        "critic",
+        should_revise,
+        {
+            "revise": "writer",
+            "finalize": "finalizer",
+        },
+    )
+
+    workflow.add_edge("finalizer", END)
+
+    return workflow.compile()
+
